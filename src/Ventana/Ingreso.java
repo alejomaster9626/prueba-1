@@ -43,12 +43,10 @@ public final class Ingreso extends JFrame {
      JTextField txtdctopension = new JTextField();
      JTextField txttotaldeducidos = new JTextField();
      JTextField txtnetoapagar = new JTextField();
-     
-    
-     
-     
+
      JButton guardarnomina = new JButton ("Guardar Nomina");
      JButton calcularnomina = new JButton ("Calcular Nomina");
+     JButton nomellamo = new JButton ("nomellamo");
      JTable tabla;
      JScrollPane jscrollPane;
      DefaultTableModel modelodelatabla;
@@ -109,8 +107,9 @@ public final class Ingreso extends JFrame {
         panelInferior.setLayout(new FlowLayout());
         panelInferior.add(guardarnomina);
         panelInferior.add(calcularnomina);
+        panelInferior.add(nomellamo);
         
-        panelFormulario.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        panelFormulario.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         panelFormulario.setLayout(new BorderLayout(11,1));
         panelFormulario.add(panelIzquierdo,BorderLayout.WEST);
         panelFormulario.add(panelCentral,BorderLayout.CENTER);
@@ -119,11 +118,11 @@ public final class Ingreso extends JFrame {
         
        
         
-  pestaña.addTab("Registro_De_Datos", panelFormulario);
+  pestaña.addTab("Ingreso_De_Datos", panelFormulario);
   panelFormulario.setBackground(Color.LIGHT_GRAY);
   panelIzquierdo.setBackground(Color.LIGHT_GRAY);
   panelInferior.setBackground(Color.LIGHT_GRAY);
-   panelCentral.setBackground(Color.LIGHT_GRAY);
+   panelCentral.setBackground(Color.WHITE);
    
    
     }
@@ -192,35 +191,17 @@ public final class Ingreso extends JFrame {
           txtdctopension.setText(dpet);
           txttotaldeducidos.setText(tdit);
           txtnetoapagar.setText(npat);
-          
-          
-          
-          
-          
-            
-           
-           
+ 
                 
             }
 
             
-            
-            
-            
         }});
-        
-        
-        
-        
+
         guardarnomina.addActionListener(new ActionListener(){
             
            public void actionPerformed(ActionEvent e) { 
-               
-               
-               
-       
-            
-           
+
            String ced = txtcedula.getText();
            String nom = txtnombre.getText();
            String ape = txtapellido.getText();
@@ -232,6 +213,25 @@ public final class Ingreso extends JFrame {
            String dpe = txtdctopension.getText();
            String tdi = txttotaldeducidos.getText();
            String npa = txtnetoapagar.getText();
+           
+           
+           if((txtcedula.getText().length()==0)){
+             JOptionPane.showMessageDialog(null, "No puede guardar si los datos estan incompletos");
+            }
+             
+           if((txtnombre.getText().length()==0)){
+             JOptionPane.showMessageDialog(null, "No puede guardar si los datos estan incompletos");
+            }
+             
+           if((txtapellido.getText().length()==0)){
+             JOptionPane.showMessageDialog(null, "No puede guardar si los datos estan incompletos");
+            }
+             
+           if((txtcargo.getText().length()==0)){
+             JOptionPane.showMessageDialog(null, "No puede guardar si los datos estan incompletos");
+            }
+             else{
+                   
 
         
            Object datos2 [] = {ced, ape, nom, car, not, vho, tde, dsa, dpe, tdi, npa};
@@ -250,20 +250,11 @@ public final class Ingreso extends JFrame {
            txttotaldeducidos.setText("");
            txtnetoapagar.setText("");
         
-        }
+        }}
         
        
          });
-        
-        
-        
-                
-        
-        
-        
-        
-       
-        
+
     }
     
     
